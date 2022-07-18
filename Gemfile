@@ -46,6 +46,7 @@ end
 
 group :test do
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'database_cleaner-active_record'
 end
 
 gem 'reform', '~> 2.6.2'

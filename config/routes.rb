@@ -5,7 +5,7 @@ Rails.application.routes.draw do
         resources :words, only: %i[index update destroy]
       end
 
-      resources :words, only: %i[index create]
+      resources :words, only: %i[index create update]
     end
   end
 

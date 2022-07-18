@@ -49,7 +49,7 @@ RSpec.describe 'API::V1::Backoffice::Words', type: :request do
     end
   end
 
-  describe 'DESTROY /' do
+  describe 'DESTROY /delete' do
     let(:word) { create(:word) }
 
     before do
