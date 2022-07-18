@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'API::V1::Backoffice::Words', type: :request do
-
   let(:current_owner) { create(:user) }
   let(:token) { JsonWebToken.encode(user_id: current_owner.id) }
 

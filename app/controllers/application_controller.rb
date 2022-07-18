@@ -1,8 +1,9 @@
 # Application controller
 class ApplicationController < ActionController::API
+  # rubocop:disable Lint/DuplicateBranch
   def authorize_request
     header = request.headers['Authorization']
-    header = header.split(' ').last if header
+    header = header.split.last if header
     begin
       @decoded = JsonWebToken.decode(header)
       @current_user = User.find(@decoded[:user_id])
@@ -12,6 +13,7 @@ class ApplicationController < ActionController::API
       render json: { errors: e.message }, status: :unauthorized
     end
   end
+  # rubocop:enable Lint/DuplicateBranch
 
   def response_operation(operation = nil, *args)
     return nil unless operation

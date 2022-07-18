@@ -45,17 +45,17 @@ group :development do
 end
 
 group :test do
-  gem 'shoulda-matchers', '~> 5.0'
   gem 'database_cleaner-active_record'
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
+gem 'active_model_serializers', '~> 0.10.0'
+gem 'bcrypt'
+gem 'devise', '~> 4.8.1'
+gem 'jwt', '~> 2.4.1'
+gem 'rack-cors', '~> 1.1.1'
 gem 'reform', '~> 2.6.2'
 gem 'reform-rails'
-gem 'jwt', '~> 2.4.1'
-gem 'bcrypt'
-gem 'active_model_serializers', '~> 0.10.0'
-gem 'devise', '~> 4.8.1'
-gem 'rack-cors', '~> 1.1.1'
 gem 'rswag', '~> 2.5.1'
 gem 'seedbank', '~> 0.5.0'
 gem 'trailblazer-finder', '~> 0.90.0'

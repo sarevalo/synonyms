@@ -5,7 +5,7 @@ RSpec.describe 'API::V1::Words', type: :request do
   let!(:words) { create_list(:word, 5) }
 
   describe 'GET /index' do
-    context 'Get words' do
+    context 'when get words' do
       path '/api/v1/words' do
         get('Get words') do
           consumes 'application/json'

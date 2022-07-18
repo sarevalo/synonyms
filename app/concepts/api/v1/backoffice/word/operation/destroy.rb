@@ -4,12 +4,12 @@ module API
       # Update operation
       class Word::Operation::Destroy < API::V1::Base::Operation
         step Rescue(handler: :error!) {
-          step Model(::Word, :find_by )
+          step Model(::Word, :find_by)
           step :delete!
         }
         fail :set_status!
 
-        def delete!(ctx, model:, **)
+        def delete!(_ctx, model:, **)
           model.destroy!
         end
       end

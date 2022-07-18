@@ -7,7 +7,7 @@ RSpec.describe 'API::V1::Backoffice::Words', type: :request do
   let!(:words) { create_list(:word, 5) }
 
   describe 'GET /index' do
-    context 'Get words' do
+    context 'when get words' do
       path '/api/v1/backoffice/words' do
         get('Get words') do
           consumes 'application/json'
@@ -16,7 +16,7 @@ RSpec.describe 'API::V1::Backoffice::Words', type: :request do
 
           let(:Authorization) { "Bearer #{token}" }
 
-          parameter name: 'Authorization', :in => :header, :type => :string
+          parameter name: 'Authorization', in: :header, type: :string
 
           response '200', 'words' do
             schema type: :object, properties: {
@@ -52,7 +52,7 @@ RSpec.describe 'API::V1::Backoffice::Words', type: :request do
 
         let(:Authorization) { "Bearer #{token}" }
 
-        parameter name: 'Authorization', :in => :header, :type => :string
+        parameter name: 'Authorization', in: :header, type: :string
         parameter name: :id, in: :path, type: :string
         parameter name: :params, in: :body, schema: {
           type: :object,
@@ -84,7 +84,7 @@ RSpec.describe 'API::V1::Backoffice::Words', type: :request do
 
         let(:Authorization) { "Bearer #{token}" }
 
-        parameter name: 'Authorization', :in => :header, :type => :string
+        parameter name: 'Authorization', in: :header, type: :string
         parameter name: :id, in: :path, type: :string
 
         response '204', 'no content' do

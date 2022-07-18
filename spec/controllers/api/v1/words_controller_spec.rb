@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'API::V1::Words', type: :request do
-
   describe 'GET /index' do
     let!(:words) { create_list(:word, 5) }
 

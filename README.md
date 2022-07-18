@@ -32,3 +32,21 @@ docker-compose build
 ```shell
 docker-compose run --rm challenge bundle exec rake db:setup
 ```
+
+### Start project for the first time
+
+```shell
+docker-compose up -d
+```
+
+### Run rubocop
+
+```shell
+docker-compose run --rm challenge bundle exec rubocop -a
+```
+
+### Run specs
+
+```shell
+docker-compose run --rm challenge bundle exec rspec
+```

@@ -19,7 +19,7 @@ module API
         def populate_synonyms(fragment:, **)
           item = synonyms.find { |synonym| synonym.id == fragment['id'].to_i }
 
-          item ? item : synonyms.append(::Synonym.new)
+          item || synonyms.append(::Synonym.new)
         end
       end
     end

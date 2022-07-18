@@ -12,7 +12,7 @@ module API
         validates :reference, presence: true
       end
 
-      def populate_synonyms(options:, **)
+      def populate_synonyms(_options:, **)
         synonyms.append(::Synonym.new)
       end
     end

@@ -44,9 +44,17 @@ RSpec.configure do |config|
 
   config.include FactoryBot::Syntax::Methods
 
+  DatabaseCleaner.allow_remote_database_url = true
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example| # rubocop:disable RSpec/HookArgument
+    DatabaseCleaner.cleaning do
+      example.run
+    end
   end
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
