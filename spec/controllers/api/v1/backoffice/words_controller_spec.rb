@@ -28,4 +28,18 @@ RSpec.describe 'API::V1::Backoffice::Words', type: :request do
       it { expect(response).to have_http_status(:ok) }
     end
   end
+
+  describe 'PUT /update' do
+    let(:word) { create(:word, status: :pending) }
+    let(:params) { attributes_for(:word) }
+
+    context 'when update a word' do
+      before do
+        put api_v1_backoffice_word_path(word.id, params: params), headers: { Authorization: token }
+      end
+
+      it { expect(response).to have_http_status(:no_content) }
+      it { expect(word.reload.status).to eq('approved') }
+    end
+  end
 end

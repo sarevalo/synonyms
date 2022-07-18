@@ -42,4 +42,36 @@ RSpec.describe 'API::V1::Backoffice::Words', type: :request do
       end
     end
   end
+
+  describe 'PUT /update' do
+    path '/api/v1/backoffice/words/{id}' do
+      put('Update word') do
+        consumes 'application/json'
+        produces 'application/json'
+        tags :backoffice
+
+        let(:Authorization) { "Bearer #{token}" }
+
+        parameter name: 'Authorization', :in => :header, :type => :string
+        parameter name: :id, in: :path, type: :string
+        parameter name: :params, in: :body, schema: {
+          type: :object,
+          properties: {
+            reference: { type: :string },
+            status: { type: :string, enum: ::Word.statuses.keys }
+          },
+          required: [
+            :params
+          ]
+        }
+
+        response '204', 'no content' do
+          let!(:id) { words.first.id }
+          let(:params) { attributes_for(:word) }
+
+          run_test!
+        end
+      end
+    end
+  end
 end

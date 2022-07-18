@@ -71,6 +71,39 @@ paths:
                           - approved
                   meta:
                     "$ref": "#/components/schemas/meta"
+  "/api/v1/backoffice/words/{id}":
+    put:
+      summary: Update word
+      tags:
+      - backoffice
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: no content
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reference:
+                  type: string
+                status:
+                  type: string
+                  enum:
+                  - pending
+                  - approved
+              required:
+              - params
   "/api/v1/words":
     get:
       summary: Get words
