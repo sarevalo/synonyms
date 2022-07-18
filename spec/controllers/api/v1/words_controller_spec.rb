@@ -40,4 +40,23 @@ RSpec.describe 'API::V1::Words', type: :request do
       it { expect(response).to have_http_status(:unprocessable_entity) }
     end
   end
+
+  describe 'PUT /update' do
+    let(:word) { create(:word, status: :pending) }
+    let(:synonym) { create(:synonym, word: word) }
+    let(:params) do
+      attributes_for(
+        :word,
+        synonyms: [attributes_for(:synonym, id: synonym.id)]
+      )
+    end
+
+    context 'when update a word' do
+      before do
+        put api_v1_word_path(word.id, params: params)
+      end
+
+      it { expect(response).to have_http_status(:no_content) }
+    end
+  end
 end

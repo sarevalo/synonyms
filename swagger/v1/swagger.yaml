@@ -175,14 +175,43 @@ paths:
               properties:
                 reference:
                   type: string
+  "/api/v1/words/{id}":
+    put:
+      summary: Update word
+      tags:
+      - public
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: no content
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reference:
+                  type: string
+                synonyms:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      reference:
+                        type: string
+              required:
+              - params
 servers:
 - url: http://localhost:3000
   description: Development API
 components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
   schemas:
     meta:
       type: object

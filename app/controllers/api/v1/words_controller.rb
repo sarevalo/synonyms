@@ -11,6 +11,11 @@ module API
         operation = Word::Operation::Create.call(params: params)
         response_operation(operation, status: 201)
       end
+
+      def update
+        operation = Word::Operation::Update.call(params: params)
+        response_operation(operation, status: 204)
+      end
     end
   end
 end

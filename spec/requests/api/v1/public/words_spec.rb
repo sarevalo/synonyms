@@ -66,4 +66,42 @@ RSpec.describe 'API::V1::Words', type: :request do
       end
     end
   end
+
+  describe 'PUT /update' do
+    path '/api/v1/words/{id}' do
+      put('Update word') do
+        consumes 'application/json'
+        produces 'application/json'
+        tags :public
+
+        parameter name: :id, in: :path, type: :string
+        parameter name: :params, in: :body, schema: {
+          type: :object,
+          properties: {
+            reference: { type: :string },
+            synonyms: {
+              type: :array,
+              items: {
+                type: :object,
+                properties: {
+                  id: { type: :integer },
+                  reference: { type: :string }
+                }
+              }
+            }
+          },
+          required: [
+            :params
+          ]
+        }
+
+        response '204', 'no content' do
+          let!(:id) { words.first.id }
+          let(:params) { attributes_for(:word) }
+
+          run_test!
+        end
+      end
+    end
+  end
 end
