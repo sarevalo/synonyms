@@ -63,6 +63,7 @@ gem 'rswag', '~> 2.5.1'
 gem 'seedbank', '~> 0.5.0'
 gem 'trailblazer-finder', '~> 0.90.0'
 gem 'trailblazer-rails', '~> 2.1.0'
+gem 'scenic'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
