@@ -1,0 +1,252 @@
+{
+	"info": {
+		"_postman_id": "b4a42c30-a128-42c8-b409-a037185cd020",
+		"name": "Fitune Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2542912"
+	},
+	"item": [
+		{
+			"name": "backoffice",
+			"item": [
+				{
+					"name": "words",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTgyMjU0ODJ9.T_YFDb32oC2GHmib_2WcF7WYZYiFfJyaR2ISX0me4qQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fitune-challenge.herokuapp.com/api/v1/backoffice/words",
+							"protocol": "https",
+							"host": [
+								"fitune-challenge",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"backoffice",
+								"words"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTgyMjU0ODJ9.T_YFDb32oC2GHmib_2WcF7WYZYiFfJyaR2ISX0me4qQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": \"1\",\r\n\t\"reference\": \"conocer\",\r\n\t\"status\": \"approved\",\r\n\t\"synonyms\": [\r\n\t\t{ \r\n\t\t\t\"id\": \"1\",\r\n\t\t\t\"reference\": \"experimentar\" \r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id\": \"2\",\r\n\t\t\t\"reference\": \"sentir\" \r\n\t\t}\r\n\t]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fitune-challenge.herokuapp.com/api/v1/backoffice/words/1",
+							"protocol": "https",
+							"host": [
+								"fitune-challenge",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"backoffice",
+								"words",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTgyMjU0ODJ9.T_YFDb32oC2GHmib_2WcF7WYZYiFfJyaR2ISX0me4qQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://fitune-challenge.herokuapp.com/api/v1/backoffice/words/4",
+							"protocol": "https",
+							"host": [
+								"fitune-challenge",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"backoffice",
+								"words",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "public",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"admin\",\r\n    \"password\": \"$dm!nhola123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fitune-challenge.herokuapp.com/api/v1/auth/login",
+							"protocol": "https",
+							"host": [
+								"fitune-challenge",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"reference\": \"conocer desde publico\",\r\n\t\"synonyms\": [\r\n\t\t{ \"reference\": \"saber publico\" },\r\n\t\t{ \"reference\": \"comprender publico\" }\r\n\t]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fitune-challenge.herokuapp.com/api/v1/words",
+							"protocol": "https",
+							"host": [
+								"fitune-challenge",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"words"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "words",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fitune-challenge.herokuapp.com/api/v1/words?reference_eq=facil",
+							"protocol": "https",
+							"host": [
+								"fitune-challenge",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"words"
+							],
+							"query": [
+								{
+									"key": "reference_eq",
+									"value": "facil"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"reference\": \"facil\",\r\n    \"synonyms\": [\r\n        { \r\n            \"id\": \"1\",\r\n            \"reference\": \"sencillo\" \r\n        },\r\n        {\r\n            \"reference\": \"otro\" \r\n        }\r\n\t]\r\n}"
+						},
+						"url": {
+							"raw": "https://fitune-challenge.herokuapp.com/api/v1/words/1",
+							"protocol": "https",
+							"host": [
+								"fitune-challenge",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"words",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

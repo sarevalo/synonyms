@@ -50,3 +50,24 @@ docker-compose run --rm challenge bundle exec rubocop -a
 ```shell
 docker-compose run --rm challenge bundle exec rspec
 ```
+
+
+
+### Repository
+
+```
+https://github.com/sarevalo/synonyms
+```
+
+### Documentation
+
+```
+https://fitune-challenge.herokuapp.com/api-docs/index.html
+```
+
+### Collection
+
+```
+public/Fitune Challenge.postman_collection.json
+```
+
