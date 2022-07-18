@@ -104,6 +104,23 @@ paths:
                   - approved
               required:
               - params
+    delete:
+      summary: delete word
+      tags:
+      - backoffice
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: no content
   "/api/v1/words":
     get:
       summary: Get words

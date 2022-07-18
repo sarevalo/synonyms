@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       namespace :backoffice do
-        resources :words, only: %i[index update]
+        resources :words, only: %i[index update destroy]
       end
 
       resources :words, only: %i[index create]

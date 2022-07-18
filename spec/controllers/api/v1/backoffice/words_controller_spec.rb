@@ -48,4 +48,14 @@ RSpec.describe 'API::V1::Backoffice::Words', type: :request do
       it { expect(word.reload.status).to eq('approved') }
     end
   end
+
+  describe 'DESTROY /' do
+    let(:word) { create(:word) }
+
+    before do
+      delete api_v1_backoffice_word_path(word.id), headers: { Authorization: token }
+    end
+
+    it { expect(response).to have_http_status(:no_content) }
+  end
 end
