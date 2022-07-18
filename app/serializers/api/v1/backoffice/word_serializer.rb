@@ -3,6 +3,8 @@ module API
     module Backoffice
       class WordSerializer < API::BaseSerializer
         attributes :id, :reference, :status
+
+        has_many :synonyms, serializer: API::V1::Shared::SynonymSerializer
       end
     end
   end

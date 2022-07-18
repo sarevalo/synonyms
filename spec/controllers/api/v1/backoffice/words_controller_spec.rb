@@ -31,7 +31,13 @@ RSpec.describe 'API::V1::Backoffice::Words', type: :request do
 
   describe 'PUT /update' do
     let(:word) { create(:word, status: :pending) }
-    let(:params) { attributes_for(:word) }
+    let(:synonym) { create(:synonym, word: word) }
+    let(:params) do
+      attributes_for(
+        :word,
+        synonyms: [attributes_for(:synonym, id: synonym.id)]
+      )
+    end
 
     context 'when update a word' do
       before do
