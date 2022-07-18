@@ -12,9 +12,11 @@ module API
         validates :reference, presence: true
       end
 
-      def populate_synonyms(_options:, **)
+      # rubocop:disable Lint/UnusedMethodArgument
+      def populate_synonyms(options:, **)
         synonyms.append(::Synonym.new)
       end
+      # rubocop:enable Lint/UnusedMethodArgument
     end
   end
 end
