@@ -1,16 +1,20 @@
-module Base
-  # Base error
-  class Error < StandardError
-    attr_reader :errors
+module API
+  module V1
+    module Base
+      # Base error
+      class Error < StandardError
+        attr_reader :errors
 
-    def initialize(message = '', errors = {})
-      @errors = errors
+        def initialize(message = '', errors = {})
+          @errors = errors
 
-      super(message)
-    end
+          super(message)
+        end
 
-    def status
-      500
+        def status
+          500
+        end
+      end
     end
   end
 end
