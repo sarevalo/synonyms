@@ -1,0 +1,153 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/auth/login":
+    post:
+      summary: create token
+      tags:
+      - auth
+      parameters: []
+      responses:
+        '201':
+          description: created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                  exp:
+                    type: string
+                  name:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                password:
+                  type: string
+                  format: password
+              required:
+              - data
+  "/api/v1/backoffice/words":
+    get:
+      summary: Get words
+      tags:
+      - backoffice
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: words
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        reference:
+                          type: string
+                        status:
+                          type: string
+                          enum:
+                          - pending
+                          - approved
+                  meta:
+                    "$ref": "#/components/schemas/meta"
+  "/api/v1/words":
+    get:
+      summary: Get words
+      tags:
+      - public
+      responses:
+        '200':
+          description: words
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        reference:
+                          type: string
+                        status:
+                          type: string
+                          enum:
+                          - pending
+                          - approved
+                  meta:
+                    "$ref": "#/components/schemas/meta"
+    post:
+      summary: Create word
+      tags:
+      - public
+      parameters: []
+      responses:
+        '201':
+          description: created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  reference:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reference:
+                  type: string
+servers:
+- url: http://localhost:3000
+  description: Development API
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    meta:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            page:
+              type: integer
+              nullable: true
+            per_page:
+              type: integer
+              nullable: true
+          required:
+          - per_page
+          - page
+      required:
+      - pagination
